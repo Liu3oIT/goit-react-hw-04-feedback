@@ -1,0 +1,11 @@
+.statistics {
+  display: flex;
+  align-items: center;
+  max-height: 80px;
+}
+.info_statistics {
+  margin-right: 20px;
+}
+ul {
+  list-style-type: none;
+}
