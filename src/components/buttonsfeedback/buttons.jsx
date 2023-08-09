@@ -1,10 +1,10 @@
 import css from './buttons.module.css';
 
-export const FeedbackOptions = ({ onTotalFeedback, handleClick, title }) => {
+export const FeedbackOptions = ({ title, handleClick }) => {
   return (
     <section>
       <h1>{title}</h1>
-      <div className={css.section_buttons} onClick={onTotalFeedback}>
+      <div className={css.section_buttons}>
         <button
           className={css.button}
           type="button"
