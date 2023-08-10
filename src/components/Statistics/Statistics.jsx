@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Statistics } from 'components/Feedback/feedbackclient';
 import { FeedbackOptions } from 'components/buttonsfeedback/buttons';
 
@@ -15,24 +15,25 @@ export default function Feedback() {
     switch (feedbackType) {
       case 'good':
         setGood(prevState => prevState + 1);
+          setTotal(prevState => prevState + 1);
+          setPositiveFeedback(Math.round(((good + 1) / (total+ 1)) * 100));
         break;
       case 'neutral':
         setNeutral(prevState => prevState + 1);
+          setTotal(prevState => prevState + 1);
+          setPositiveFeedback(Math.round((good / (total + 1)) * 100));
         break;
       case 'bad':
         setBad(prevState => prevState + 1);
+          setTotal(prevState => prevState + 1);
+          setPositiveFeedback(Math.round((good / (total + 1 )) * 100));
         break;
 
       default:
         break;
     }
   };
-  useEffect(() => {
-    setTotal(good + neutral + bad);
-  }, [good, neutral, bad]);
-  useEffect(() => {
-    setPositiveFeedback(Math.round((good / total) * 100));
-  }, [total, good]);
+
   return (
     <div>
       <FeedbackOptions
